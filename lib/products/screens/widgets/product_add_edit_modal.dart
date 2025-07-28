@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:flutter_lista_compras_drift_hive/products/data/products_drift_handler.dart';
+import 'package:flutter_lista_compras_drift_dio/products/data/products_drift_handler.dart';
 import 'package:uuid/uuid.dart';
 import '../../model/product.dart';
 

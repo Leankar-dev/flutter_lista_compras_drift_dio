@@ -1,5 +1,5 @@
-import 'package:flutter_lista_compras_drift_hive/listins/data/data_base.dart';
-import 'package:flutter_lista_compras_drift_hive/products/model/product.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/data/data_base.dart';
+import 'package:flutter_lista_compras_drift_dio/products/model/product.dart';
 
 class ProductsDriftHandler {
   late AppDatabase _database;

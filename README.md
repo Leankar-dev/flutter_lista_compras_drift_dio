@@ -1,4 +1,4 @@
-# flutter_lista_compras_drift_hive
+# flutter_lista_compras_drift_dio
 
 A Flutter app that allows you to create shopping lists. You can create multiple lists. Using Drift as the local database.
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/listin_routes.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/listin_routes.dart';
 
 showCustomSnackBar({
   required BuildContext context,

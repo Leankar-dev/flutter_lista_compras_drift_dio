@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/authentication/models/mock_user.dart';
+import 'package:flutter_lista_compras_drift_dio/authentication/models/mock_user.dart';
 
 import '../../../_core/listin_routes.dart';
 import '../../../authentication/screens/widgets/show_confirm_password_dialog.dart';

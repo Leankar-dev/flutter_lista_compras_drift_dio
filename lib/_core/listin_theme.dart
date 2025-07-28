@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/constants/listin_colors.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/constants/listin_colors.dart';
 
 class ListinTheme {
   static ThemeData mainTheme = ThemeData(

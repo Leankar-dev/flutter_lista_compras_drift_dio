@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/models/listin.dart';
-import 'package:flutter_lista_compras_drift_hive/products/model/product.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/models/listin.dart';
+import 'package:flutter_lista_compras_drift_dio/products/model/product.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/authentication/models/mock_user.dart';
-import 'package:flutter_lista_compras_drift_hive/authentication/screens/auth_screen.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/models/listin.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/screens/home_screen.dart';
-import 'package:flutter_lista_compras_drift_hive/products/screens/products_screen.dart';
+import 'package:flutter_lista_compras_drift_dio/authentication/models/mock_user.dart';
+import 'package:flutter_lista_compras_drift_dio/authentication/screens/auth_screen.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/models/listin.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/screens/home_screen.dart';
+import 'package:flutter_lista_compras_drift_dio/products/screens/products_screen.dart';
 
 class ListinRoutes {
   static const String auth = "auth";

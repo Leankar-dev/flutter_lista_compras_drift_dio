@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import "package:flutter_lista_compras_drift_hive/listins/data/data_base.dart";
-import "package:flutter_lista_compras_drift_hive/listins/models/listin.dart";
+import "package:flutter_lista_compras_drift_dio/listins/data/data_base.dart";
+import "package:flutter_lista_compras_drift_dio/listins/models/listin.dart";
 
 showAddEditListinModal({
   required BuildContext context,
@@ -13,11 +13,9 @@ showAddEditListinModal({
   String labelConfirmationButton = "Salvar";
   String labelSkipButton = "Cancelar";
 
-  // Controlador do campo que receberá o nome do Listin
   TextEditingController nameController = TextEditingController();
   TextEditingController obsController = TextEditingController();
 
-  // Caso esteja editando
   DateTime dateCreate = DateTime.now();
   DateTime dateUpdate = DateTime.now();
 
@@ -29,11 +27,9 @@ showAddEditListinModal({
     dateUpdate = model.dateUpdate;
   }
 
-  // Função do Flutter que mostra o modal na tela
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
-    // Define que as bordas verticais serão arredondadas
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
     ),
@@ -43,7 +39,6 @@ showAddEditListinModal({
         child: Container(
           height: MediaQuery.of(context).size.height * 0.75,
           padding: const EdgeInsets.all(32.0),
-          // Formulário com Título, Campo e Botões
           child: ListView(
             children: [
               Text(
@@ -79,9 +74,7 @@ showAddEditListinModal({
                   const SizedBox(width: 16),
                   ElevatedButton(
                     onPressed: () {
-                      // Criar um objeto Listin com as infos
                       Listin listin = Listin(
-                        // Em criação, esse valor será autogerado pelo banco.
                         id: "0",
                         name: nameController.text,
                         obs: obsController.text,
@@ -96,10 +89,8 @@ showAddEditListinModal({
                         appDatabase.updateListin(listin);
                       }
 
-                      // Atualizar a lista
                       onRefresh();
 
-                      // Fechar o Modal
                       Navigator.pop(context);
                     },
                     child: Text(labelConfirmationButton),

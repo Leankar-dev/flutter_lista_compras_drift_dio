@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/constants/listin_colors.dart';
-import 'package:flutter_lista_compras_drift_hive/authentication/screens/widgets/show_custom_snackbar.dart';
-import 'package:flutter_lista_compras_drift_hive/authentication/services/auth_service.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/constants/listin_colors.dart';
+import 'package:flutter_lista_compras_drift_dio/authentication/screens/widgets/show_custom_snackbar.dart';
+import 'package:flutter_lista_compras_drift_dio/authentication/services/auth_service.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});

@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:flutter_lista_compras_drift_hive/listins/models/listin.dart";
+import "package:flutter_lista_compras_drift_dio/listins/models/listin.dart";
 
 Future<dynamic> showListinOptionsModal({
   required BuildContext context,

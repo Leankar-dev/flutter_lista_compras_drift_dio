@@ -1,4 +1,4 @@
-name: flutter_lista_compras_drift_hive
+name: flutter_lista_compras_drift_dio
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -42,8 +42,6 @@ dependencies:
   path_provider: ^2.1.5
   sqlite3_flutter_libs: ^0.5.37
   path: ^1.9.1
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
   dio: ^5.8.0+1
 
 dev_dependencies:

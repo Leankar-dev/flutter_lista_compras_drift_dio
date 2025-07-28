@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/constants/listin_colors.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/listin_routes.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/models/listin.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/constants/listin_colors.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/listin_routes.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/models/listin.dart';
 import '../../../_core/helpers/time_passed.dart';
 
 class HomeListinItem extends StatelessWidget {

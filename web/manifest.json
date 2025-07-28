@@ -1,6 +1,6 @@
 {
-    "name": "flutter_lista_compras_drift_hive",
-    "short_name": "flutter_lista_compras_drift_hive",
+    "name": "flutter_lista_compras_drift_dio",
+    "short_name": "flutter_lista_compras_drift_dio",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

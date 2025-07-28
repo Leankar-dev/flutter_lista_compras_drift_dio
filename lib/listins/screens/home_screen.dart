@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/authentication/models/mock_user.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/data/data_base.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/screens/widgets/home_drawer.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/screens/widgets/home_listin_item.dart';
+import 'package:flutter_lista_compras_drift_dio/authentication/models/mock_user.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/data/data_base.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/screens/widgets/home_drawer.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/screens/widgets/home_listin_item.dart';
 import '../models/listin.dart';
 import 'widgets/listin_add_edit_modal.dart';
 import 'widgets/listin_options_modal.dart';
@@ -290,7 +290,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void saveSky() {
     // Implement the logic to save the listins to the cloud (Sky)
-    // This is a placeholder for the actual implementation
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(const SnackBar(content: Text('Listas salvas na nuvem!')));
@@ -298,7 +297,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void syncSky() {
     // Implement the logic to sync the listins with the cloud (Sky)
-    // This is a placeholder for the actual implementation
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Listas sincronizadas com a nuvem!')),
     );
@@ -306,7 +304,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void clearSky() {
     // Implement the logic to clear the listins from the cloud (Sky)
-    // This is a placeholder for the actual implementation
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(const SnackBar(content: Text('Dados da nuvem removidos!')));

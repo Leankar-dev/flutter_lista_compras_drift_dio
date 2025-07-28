@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/listins/data/data_base.dart';
-import 'package:flutter_lista_compras_drift_hive/products/data/products_drift_handler.dart';
-import 'package:flutter_lista_compras_drift_hive/products/helpers/enum_order.dart';
-import 'package:flutter_lista_compras_drift_hive/products/screens/widgets/product_add_edit_modal.dart';
+import 'package:flutter_lista_compras_drift_dio/listins/data/data_base.dart';
+import 'package:flutter_lista_compras_drift_dio/products/data/products_drift_handler.dart';
+import 'package:flutter_lista_compras_drift_dio/products/helpers/enum_order.dart';
+import 'package:flutter_lista_compras_drift_dio/products/screens/widgets/product_add_edit_modal.dart';
 import '../../listins/models/listin.dart';
 import '../model/product.dart';
 import 'widgets/product_list_item.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/listin_routes.dart';
-import 'package:flutter_lista_compras_drift_hive/_core/listin_theme.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/listin_routes.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/listin_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
