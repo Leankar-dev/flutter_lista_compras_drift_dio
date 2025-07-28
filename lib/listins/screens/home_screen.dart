@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/constants/listin_colors.dart';
 import 'package:flutter_lista_compras_drift_dio/authentication/models/mock_user.dart';
 import 'package:flutter_lista_compras_drift_dio/listins/data/data_base.dart';
 import 'package:flutter_lista_compras_drift_dio/listins/screens/widgets/home_drawer.dart';
 import 'package:flutter_lista_compras_drift_dio/listins/screens/widgets/home_listin_item.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/helpers/confirmation_dialog.dart';
 import '../models/listin.dart';
 import 'widgets/listin_add_edit_modal.dart';
 import 'widgets/listin_options_modal.dart';
@@ -288,24 +290,62 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  void saveSky() {
-    // Implement the logic to save the listins to the cloud (Sky)
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Listas salvas na nuvem!')));
-  }
-
-  void syncSky() {
-    // Implement the logic to sync the listins with the cloud (Sky)
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Listas sincronizadas com a nuvem!')),
+  void saveSky() async {
+    bool? confirmed = await showConfirmationDialog(
+      context: context,
+      title: 'Salvar na nuvem',
+      content: 'Confirma a sobrescrita dos dados na nuvem?',
+      confirmButtonText: 'Salvar',
+      cancelButtonText: 'Cancelar',
+      icon: Icons.cloud_upload,
+      confirmButtonColor: ListinColors.green[600],
     );
+
+    if (confirmed != null && confirmed) {
+      // Implement the logic to save the listins to the cloud (Sky)
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Listas salvas na nuvem!')));
+    }
   }
 
-  void clearSky() {
-    // Implement the logic to clear the listins from the cloud (Sky)
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Dados da nuvem removidos!')));
+  void syncSky() async {
+    bool? confirmed = await showConfirmationDialog(
+      context: context,
+      title: 'Sincronizar com a nuvem',
+      content:
+          'Confirma a sincronização dos dados com a nuvem? Isso pode sobrescrever dados locais.',
+      confirmButtonText: 'Sincronizar',
+      cancelButtonText: 'Cancelar',
+      icon: Icons.sync,
+      confirmButtonColor: Colors.blue,
+    );
+
+    if (confirmed != null && confirmed) {
+      // Implement the logic to sync the listins with the cloud (Sky)
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Listas sincronizadas com a nuvem!')),
+      );
+    }
+  }
+
+  void clearSky() async {
+    bool? confirmed = await showConfirmationDialog(
+      context: context,
+      title: 'Remover dados da nuvem',
+      content:
+          'Tem certeza que deseja remover todos os dados da nuvem? Esta ação não pode ser desfeita.',
+      confirmButtonText: 'Remover',
+      cancelButtonText: 'Cancelar',
+      icon: Icons.delete_forever,
+      confirmButtonColor: Colors.red,
+    );
+
+    if (confirmed != null && confirmed) {
+      // Implement the logic to clear the listins from the cloud (Sky)
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Dados da nuvem removidos!')),
+      );
+    }
   }
 }
