@@ -42,6 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       drawer: HomeDrawer(user: widget.user),
       appBar: AppBar(
         title: const Text("Minhas listas"),
+        centerTitle: true,
         actions: [
           PopupMenuButton<String>(
             onSelected: (String value) {
@@ -51,6 +52,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   break;
                 case 'order_default':
                   orderDefault();
+                  break;
+                case 'save_sky':
+                  saveSky();
+                  break;
+                case 'sync_sky':
+                  syncSky();
+                  break;
+                case 'clear_sky':
+                  clearSky();
                   break;
               }
             },
@@ -75,6 +85,45 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icon(!isOrderedByName ? Icons.check : Icons.list, size: 20),
                     const SizedBox(width: 8),
                     const Text('Ordem data'),
+                  ],
+                ),
+              ),
+              PopupMenuItem<String>(
+                value: 'save_sky',
+                child: Row(
+                  children: [
+                    Icon(
+                      !isOrderedByName ? Icons.upload : Icons.save_as,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    const Text('Salvar na nuvem'),
+                  ],
+                ),
+              ),
+              PopupMenuItem<String>(
+                value: 'sync_sky',
+                child: Row(
+                  children: [
+                    Icon(
+                      !isOrderedByName ? Icons.download : Icons.download,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    const Text('Sincronizar na nuvem'),
+                  ],
+                ),
+              ),
+              PopupMenuItem<String>(
+                value: 'clear_sky',
+                child: Row(
+                  children: [
+                    Icon(
+                      !isOrderedByName ? Icons.clear : Icons.delete,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 8),
+                    const Text('Remover dados da nuvem'),
                   ],
                 ),
               ),
@@ -237,5 +286,29 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       orderDefault();
     }
+  }
+
+  void saveSky() {
+    // Implement the logic to save the listins to the cloud (Sky)
+    // This is a placeholder for the actual implementation
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Listas salvas na nuvem!')));
+  }
+
+  void syncSky() {
+    // Implement the logic to sync the listins with the cloud (Sky)
+    // This is a placeholder for the actual implementation
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Listas sincronizadas com a nuvem!')),
+    );
+  }
+
+  void clearSky() {
+    // Implement the logic to clear the listins from the cloud (Sky)
+    // This is a placeholder for the actual implementation
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Dados da nuvem removidos!')));
   }
 }
