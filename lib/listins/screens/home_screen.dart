@@ -326,6 +326,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (confirmed != null && confirmed) {
       // Implement the logic to sync the listins with the cloud (Sky)
+      await dioService.getDataFromServer(appDatabase);
+      refresh();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Listas sincronizadas com a nuvem!')),
       );

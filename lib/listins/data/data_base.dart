@@ -137,8 +137,9 @@ class AppDatabase extends _$AppDatabase {
   // MÉTODOS CRUD PARA PRODUTOS
 
   // Inserir produto
+
   Future<int> insertProduct(Product product) async {
-    ProductTableCompanion newRow = ProductTableCompanion(
+    final newRow = ProductTableCompanion(
       id: Value(product.id),
       name: Value(product.name),
       obs: Value(product.obs),
@@ -149,7 +150,8 @@ class AppDatabase extends _$AppDatabase {
       isPurchased: Value(product.isPurchased),
       listinId: Value(product.listinId),
     );
-    return await into(productTable).insert(newRow);
+
+    return await into(productTable).insertOnConflictUpdate(newRow);
   }
 
   // Buscar produtos por listin

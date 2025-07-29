@@ -21,4 +21,21 @@ class DioService {
       options: Options(contentType: 'application/json; UTF-8'),
     );
   }
+
+  getDataFromServer(AppDatabase appdatabase) async {
+    Response response = await _dio.get('${baseUrl}listins.json');
+
+    if (response.data != null) {
+      if ((response.data as List<dynamic>).isNotEmpty) {
+        Map<String, dynamic> map = {};
+
+        map['listins'] = response.data;
+
+        await LocalDataHandler().mapToLocalData(
+          map: map,
+          appdatabase: appdatabase,
+        );
+      }
+    }
+  }
 }
