@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lista_compras_drift_dio/_core/constants/listin_colors.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/services/dio_service.dart';
 import 'package:flutter_lista_compras_drift_dio/authentication/models/mock_user.dart';
 import 'package:flutter_lista_compras_drift_dio/listins/data/data_base.dart';
 import 'package:flutter_lista_compras_drift_dio/listins/screens/widgets/home_drawer.dart';
@@ -23,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool isOrderedByName = false;
   final TextEditingController _searchController = TextEditingController();
   bool isSearching = false;
+  DioService dioService = DioService();
 
   @override
   void initState() {
@@ -303,6 +305,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (confirmed != null && confirmed) {
       // Implement the logic to save the listins to the cloud (Sky)
+      await dioService.saveLocalToServer(appDatabase);
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text('Listas salvas na nuvem!')));
