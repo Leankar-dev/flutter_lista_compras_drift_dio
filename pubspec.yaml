@@ -43,6 +43,7 @@ dependencies:
   sqlite3_flutter_libs: ^0.5.37
   path: ^1.9.1
   dio: ^5.8.0+1
+  logger: ^2.6.1
 
 dev_dependencies:
   flutter_test:
