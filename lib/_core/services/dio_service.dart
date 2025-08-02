@@ -24,15 +24,26 @@ class DioService {
     _dio.interceptors.add(DioInterceptor());
   }
 
-  Future<void> saveLocalToServer(AppDatabase appdatabase) async {
+  Future<String?> saveLocalToServer(AppDatabase appdatabase) async {
     Map<String, dynamic> localData = await LocalDataHandler().localDataToMap(
       appdatabase: appdatabase,
     );
 
-    await _dio.put('listins.json', data: json.encode(localData['listins']));
+    try {
+      await _dio.put('listins.json', data: json.encode(localData['listins']));
+    } on DioException catch (e) {
+      if (e.message != null && e.response!.data != null) {
+        return e.response!.data!.toString();
+      } else {
+        return e.message;
+      }
+    } on Exception {
+      return 'Um erro ocorreu ao salvar os dados no servidor.';
+    }
+    return null;
   }
 
-  getDataFromServer(AppDatabase appdatabase) async {
+  Future<String?> getDataFromServer(AppDatabase appdatabase) async {
     Response response = await _dio.get(
       'listins.json',
       queryParameters: {
@@ -57,14 +68,36 @@ class DioService {
         }
         map['listins'] = tempList;
       }
-      await LocalDataHandler().mapToLocalData(
-        map: map,
-        appdatabase: appdatabase,
-      );
+      try {
+        await LocalDataHandler().mapToLocalData(
+          map: map,
+          appdatabase: appdatabase,
+        );
+      } on DioException catch (e) {
+        if (e.message != null && e.response!.data != null) {
+          return e.response!.data!.toString();
+        } else {
+          return e.message;
+        }
+      } on Exception {
+        return 'Um erro ocorreu ao salvar os dados no servidor.';
+      }
     }
+    return null;
   }
 
-  Future<void> clearServerData() async {
-    await _dio.delete('listins.json');
+  Future<String?> clearServerData() async {
+    try {
+      await _dio.delete('listins.json');
+    } on DioException catch (e) {
+      if (e.message != null && e.response!.data != null) {
+        return e.response!.data!.toString();
+      } else {
+        return e.message;
+      }
+    } on Exception {
+      return 'Um erro ocorreu ao limpar os dados no servidor.';
+    }
+    return null;
   }
 }

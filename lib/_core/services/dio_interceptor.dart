@@ -52,10 +52,6 @@ class DioInterceptor extends Interceptor {
           : options.data;
       log += 'Corpo: ${JsonEncoder.withIndent('  ').convert(body)}\n';
     }
-    // if (options.data != null) {
-    //   log +=
-    //       'Corpo: ${JsonEncoder.withIndent('  ').convert(json.decode(options.data))}\n';
-    // }
     _logger.w(log);
     Dio().post(
       'https://lista-compras-grift-default-rtdb.firebaseio.com/logs.json',
@@ -91,7 +87,6 @@ class DioInterceptor extends Interceptor {
 
     _logger.e(log);
 
-    // Enviar log de erro para o Firebase
     Dio().post(
       'https://lista-compras-grift-default-rtdb.firebaseio.com/logs.json',
       data: {'error': log},

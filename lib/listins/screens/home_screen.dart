@@ -304,8 +304,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     if (confirmed != null && confirmed) {
-      // Implement the logic to save the listins to the cloud (Sky)
-      await dioService.saveLocalToServer(appDatabase);
+      dioService.saveLocalToServer(appDatabase).then((error) {
+        if (error != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Erro ao salvar na nuvem: $error')),
+          );
+        }
+      });
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text('Listas salvas na nuvem!')));
@@ -325,8 +330,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     if (confirmed != null && confirmed) {
-      // Implement the logic to sync the listins with the cloud (Sky)
-      await dioService.getDataFromServer(appDatabase);
+      dioService.getDataFromServer(appDatabase).then((error) {
+        if (error != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Erro ao sincronizar: $error')),
+          );
+        }
+      });
       refresh();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Listas sincronizadas com a nuvem!')),
@@ -347,8 +357,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
 
     if (confirmed != null && confirmed) {
-      // Implement the logic to clear the listins from the cloud (Sky)
-      await dioService.clearServerData();
+      dioService.clearServerData().then((error) {
+        if (error != null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Erro ao remover dados da nuvem: $error')),
+          );
+        }
+      });
       refresh();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Dados da nuvem removidos!')),
