@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/services/dio_endpoints.dart';
 import 'package:logger/logger.dart';
 
 class DioInterceptor extends Interceptor {
@@ -54,7 +55,7 @@ class DioInterceptor extends Interceptor {
     }
     _logger.w(log);
     Dio().post(
-      'https://lista-compras-grift-default-rtdb.firebaseio.com/logs.json',
+      '${DioEndpoints.devBaseUrl}${DioEndpoints.logs}',
       data: {'request': log},
     );
     super.onRequest(options, handler);
@@ -74,7 +75,7 @@ class DioInterceptor extends Interceptor {
     }
     _logger.i(log);
     Dio().post(
-      'https://lista-compras-grift-default-rtdb.firebaseio.com/logs.json',
+      '${DioEndpoints.devBaseUrl}${DioEndpoints.logs}',
       data: {'response': log},
     );
     super.onResponse(response, handler);
@@ -88,25 +89,9 @@ class DioInterceptor extends Interceptor {
     _logger.e(log);
 
     Dio().post(
-      'https://lista-compras-grift-default-rtdb.firebaseio.com/logs.json',
+      '${DioEndpoints.devBaseUrl}${DioEndpoints.logs}',
       data: {'error': log},
     );
-    // String log = "";
-    // log += "Error in request to: ${err.requestOptions.uri}\n";
-    // log += 'Timestamp: ${DateTime.now()}\n';
-    // log += 'Método: ${err.requestOptions.method}\n';
-    // log += 'URL: ${err.requestOptions.uri}\n';
-    // log +=
-    //     'Cabeçalho: ${JsonEncoder.withIndent('  ').convert(err.requestOptions.headers)}\n';
-    // if (err.response?.data != null) {
-    //   log +=
-    //       'Corpo: ${JsonEncoder.withIndent('  ').convert(err.response?.data)}\n';
-    // }
-    // _logger.e(log);
-    // Dio().post(
-    //   'https://lista-compras-grift-default-rtdb.firebaseio.com/logs.json',
-    //   data: {'error': log},
-    // );
     super.onError(err, handler);
   }
 }

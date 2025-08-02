@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_lista_compras_drift_dio/_core/data/local_data_handler.dart';
+import 'package:flutter_lista_compras_drift_dio/_core/services/dio_endpoints.dart';
 import 'package:flutter_lista_compras_drift_dio/_core/services/dio_interceptor.dart';
 import 'package:flutter_lista_compras_drift_dio/listins/data/data_base.dart';
 
 class DioService {
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'https://lista-compras-grift-default-rtdb.firebaseio.com/',
+      baseUrl: DioEndpoints.devBaseUrl,
       // contentType: 'application/json; UTF-8',
       responseType: ResponseType.json,
       connectTimeout: const Duration(seconds: 10),
@@ -30,7 +31,10 @@ class DioService {
     );
 
     try {
-      await _dio.put('listins.json', data: json.encode(localData['listins']));
+      await _dio.put(
+        DioEndpoints.listins,
+        data: json.encode(localData['listins']),
+      );
     } on DioException catch (e) {
       if (e.message != null && e.response!.data != null) {
         return e.response!.data!.toString();
@@ -45,7 +49,7 @@ class DioService {
 
   Future<String?> getDataFromServer(AppDatabase appdatabase) async {
     Response response = await _dio.get(
-      'listins.json',
+      DioEndpoints.listins,
       queryParameters: {
         'orderBy': '"name"',
         "startAt": '"0"',
@@ -88,7 +92,7 @@ class DioService {
 
   Future<String?> clearServerData() async {
     try {
-      await _dio.delete('listins.json');
+      await _dio.delete(DioEndpoints.listins);
     } on DioException catch (e) {
       if (e.message != null && e.response!.data != null) {
         return e.response!.data!.toString();
