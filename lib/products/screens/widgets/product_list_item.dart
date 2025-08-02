@@ -45,7 +45,7 @@ class ProductListItem extends StatelessWidget {
       subtitle: Text(
         (produto.price == null)
             ? "Clique para adicionar preço"
-            : "R\$ ${produto.price!}",
+            : "${produto.price!} €",
       ),
     );
   }

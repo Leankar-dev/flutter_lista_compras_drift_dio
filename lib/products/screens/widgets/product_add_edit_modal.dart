@@ -99,7 +99,7 @@ showProductAddEditProductModal({
                     decoration: const InputDecoration(
                       label: Text("Preço"),
                       icon: Icon(Icons.attach_money_rounded),
-                      prefixText: "R\$ ",
+                      prefixText: "€ ",
                     ),
                     onChanged: (value) {
                       priceController.text = value.replaceAll(",", ".");

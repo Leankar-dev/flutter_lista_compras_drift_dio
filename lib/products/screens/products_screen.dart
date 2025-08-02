@@ -102,7 +102,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 child: Column(
                   children: [
                     Text(
-                      "R\$${_calculateTotalPrice().toStringAsFixed(2)}",
+                      "${_calculateTotalPrice().toStringAsFixed(2)} €",
                       style: const TextStyle(fontSize: 52),
                     ),
                     const Text(
