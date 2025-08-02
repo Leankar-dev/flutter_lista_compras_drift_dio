@@ -348,6 +348,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     if (confirmed != null && confirmed) {
       // Implement the logic to clear the listins from the cloud (Sky)
+      await dioService.clearServerData();
+      refresh();
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Dados da nuvem removidos!')),
       );
