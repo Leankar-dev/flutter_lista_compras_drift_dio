@@ -303,9 +303,11 @@ class _HomeScreenState extends State<HomeScreen> {
       confirmButtonColor: ListinColors.green[600],
     );
 
+    if (!mounted) return;
+
     if (confirmed != null && confirmed) {
       dioService.saveLocalToServer(appDatabase).then((error) {
-        if (error != null) {
+        if (error != null && mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Erro ao salvar na nuvem: $error')),
           );
@@ -329,9 +331,11 @@ class _HomeScreenState extends State<HomeScreen> {
       confirmButtonColor: Colors.blue,
     );
 
+    if (!mounted) return;
+
     if (confirmed != null && confirmed) {
       dioService.getDataFromServer(appDatabase).then((error) {
-        if (error != null) {
+        if (error != null && mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Erro ao sincronizar: $error')),
           );
@@ -356,9 +360,11 @@ class _HomeScreenState extends State<HomeScreen> {
       confirmButtonColor: Colors.red,
     );
 
+    if (!mounted) return;
+
     if (confirmed != null && confirmed) {
       dioService.clearServerData().then((error) {
-        if (error != null) {
+        if (error != null && mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Erro ao remover dados da nuvem: $error')),
           );
